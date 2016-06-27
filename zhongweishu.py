@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-
 L=[]
 for i in range(6):
     L.append(input("Enter your number:"))
