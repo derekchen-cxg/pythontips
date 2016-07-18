@@ -7,7 +7,7 @@ logging.basicConfig(filename=log_filename,filemode='a',format=log_format,datefmt
 f_w=open('1.txt','a')
 f_z=open('1.txt','r+')
 l=['192.168.121.1\n','192.168.122.1\n']
-count_g1=
+count_g1=0
 count_g2=0
 for line in open('1.txt'):
     g1=re.findall('192.168.121.1',line)
