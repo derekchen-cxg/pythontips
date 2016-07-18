@@ -4,12 +4,12 @@ import logging
 log_filename='monitorgateway_log'
 log_format='%(asctime)s [%(filename)s] %(message)s'
 logging.basicConfig(filename=log_filename,filemode='a',format=log_format,datefmt='%Y-%m-%d %H:%M:%S %p',level=logging.DEBUG)
-f_w=open('gateway.txt','a')
-f_z=open('gateway.txt','r+')
+f_w=open('/scripts/gateway.txt','a')
+f_z=open('/scripts/gateway.txt','r+')
 l=['192.168.121.1\n','192.168.122.1\n']
 count_g1=0
 count_g2=0
-for line in open('1.txt'):
+for line in open('/scripts/gateway.txt'):
     g1=re.findall('192.168.121.1',line)
     g2=re.findall('192.168.122.1',line)
     count_g1=count_g1 + len(g1)
@@ -26,3 +26,7 @@ elif count_g1>0 and count_g2==0:
     f_w.write('192.168.122.1\n')
     f_w.close()
     logging.warn('gateway.txt add 192.168.122.1')
+else:
+    f_w.close()
+    f_z.close()
+    logging.warn('gateway.txt is ok')
